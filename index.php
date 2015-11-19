@@ -1,18 +1,21 @@
 <?php
+require_once("php/controllers.php");
 
 $requestUri = getCurrentUri();
 $routes = getRoutes($requestUri);
-print_r($routes);
 
 if(count($routes) < 1)
 {
-	echo "home page!";
+	home_page_controller();
 	
 }
 
-else if(isset($routes[0]))
+else if(count($routes) >= 1)
 {
-	echo "testing";
+	if(strtolower($routes[0]) == "crazy")
+	{
+		crazy_page_controller();
+	}
 }
 
 
